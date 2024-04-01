@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Tapp\FilamentMaillog\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentMaillogCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-maillog';
 
     public $description = 'My command';
 
