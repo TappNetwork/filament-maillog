@@ -52,8 +52,8 @@ php artisan vendor:publish --tag="filament-maillog-views"
 ## Usage
 
 ```php
-$filamentMaillog = new Tapp\FilamentMaillog();
-echo $filamentMaillog->echoPhrase('Hello, Tapp!');
+$FilamentMailLog = new Tapp\FilamentMailLog();
+echo $FilamentMailLog->echoPhrase('Hello, Tapp!');
 ```
 
 ## Testing
@@ -76,8 +76,8 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Steve Williamson](https://github.com/swilla)
-- [All Contributors](../../contributors)
+-   [Steve Williamson](https://github.com/swilla)
+-   [All Contributors](../../contributors)
 
 ## License
 

@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Tapp\\FilamentMaillog\\": "src/",
-            "Tapp\\FilamentMaillog\\Database\\Factories\\": "database/factories/"
+            "Tapp\\FilamentMailLog\\": "src/",
+            "Tapp\\FilamentMailLog\\Database\\Factories\\": "database/factories/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tapp\\FilamentMaillog\\Tests\\": "tests/",
+            "Tapp\\FilamentMailLog\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -73,10 +73,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tapp\\FilamentMaillog\\FilamentMaillogServiceProvider"
+                "Tapp\\FilamentMailLog\\FilamentMailLogServiceProvider"
             ],
             "aliases": {
-                "FilamentMaillog": "Tapp\\FilamentMaillog\\Facades\\FilamentMaillog"
+                "FilamentMailLog": "Tapp\\FilamentMailLog\\Facades\\FilamentMailLog"
             }
         }
     },

@@ -1,12 +1,11 @@
 <?php
 
-namespace Tapp\FilamentMaillog;
+namespace Tapp\FilamentMailLog;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Tapp\FilamentMaillog\Commands\FilamentMaillogCommand;
 
-class FilamentMaillogServiceProvider extends PackageServiceProvider
+class FilamentMailLogServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -19,7 +18,6 @@ class FilamentMaillogServiceProvider extends PackageServiceProvider
             ->name('filament-maillog')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_filament-maillog_table')
-            ->hasCommand(FilamentMaillogCommand::class);
+            ->hasMigration('create_filament-mail_log_table');
     }
 }

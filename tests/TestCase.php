@@ -1,10 +1,10 @@
 <?php
 
-namespace Tapp\FilamentMaillog\Tests;
+namespace Tapp\FilamentMailLog\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Tapp\FilamentMaillog\FilamentMaillogServiceProvider;
+use Tapp\FilamentMailLog\FilamentMailLogServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Tapp\\FilamentMaillog\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Tapp\\FilamentMailLog\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            FilamentMaillogServiceProvider::class,
+            FilamentMailLogServiceProvider::class,
         ];
     }
 

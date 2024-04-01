@@ -1,6 +1,6 @@
 <?php
 
-// config for Tapp/FilamentMaillog
+// config for Tapp/FilamentMailLog
 return [
 
 ];

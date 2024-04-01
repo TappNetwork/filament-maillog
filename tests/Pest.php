@@ -1,5 +1,5 @@
 <?php
 
-use Tapp\FilamentMaillog\Tests\TestCase;
+use Tapp\FilamentMailLog\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
