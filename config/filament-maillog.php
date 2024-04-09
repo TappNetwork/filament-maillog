@@ -1,6 +1,7 @@
 <?php
 
-// config for Tapp/FilamentMailLog
 return [
-
+    'amazon-ses' => [
+        'configuration-set' => null,
+    ],
 ];
