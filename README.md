@@ -5,7 +5,7 @@
 ![GitHub Code Style Action Status](https://github.com/TappNetwork/filament-maillog/actions/workflows/fix-php-code-style-issues.yml/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/tapp/filament-maillog.svg?style=flat-square)](https://packagist.org/packages/tapp/filament-maillog)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This plugin adds an event listener to log emails sent on `mail_logs` database table. It also adds a Filament resource to view the mail logs.
 
 ## Installation
 

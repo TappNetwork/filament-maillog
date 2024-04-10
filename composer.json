@@ -4,6 +4,7 @@
     "keywords": [
         "Tapp Network",
         "laravel",
+        "mailog",
         "filament-maillog"
     ],
     "homepage": "https://github.com/tapp/filament-maillog",
