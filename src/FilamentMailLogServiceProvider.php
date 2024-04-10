@@ -14,7 +14,8 @@ class FilamentMailLogServiceProvider extends PackageServiceProvider
             ->name('filament-maillog')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_filament-mail_log_table');
+            ->hasTranslations()
+            ->hasMigration('create_filament_mail_log_table');
     }
 
     public function packageBooted(): void

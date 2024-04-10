@@ -7,7 +7,6 @@
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
 
-
 ## Installation
 
 You can install the package via composer:
@@ -33,20 +32,52 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'amazon-ses' => [
+        'configuration-set' => null,
+    ],
+
+    'resources' => [
+        'MaiLogResource' => \Tapp\FilamentMailLog\Resources\MailLogResource::class,
+    ],
+
+    'navigation' => [
+        'maillog' => [
+            'register' => true,
+            'sort' => 1,
+            'icon' => 'heroicon-o-rectangle-stack',
+        ],
+    ],
+
+    'sort' => [
+        'column' => 'created_at',
+        'direction' => 'desc',
+    ],
 ];
 ```
 
-Optionally, you can publish the views using
+Optionally, you can publish the translations files with:
 
 ```bash
-php artisan vendor:publish --tag="filament-maillog-views"
+php artisan vendor:publish --tag="filament-authentication-log-translations"
 ```
 
-## Usage
+## Using the Resource
+
+Add this plugin to a panel on `plugins()` method. 
+E.g. in `app/Providers/Filament/AdminPanelProvider.php`:
 
 ```php
-$FilamentMailLog = new Tapp\FilamentMailLog();
-echo $FilamentMailLog->echoPhrase('Hello, Tapp!');
+use Tapp\FilamentMailLog\FilamentMailLogPlugin;
+ 
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        // ...
+        ->plugins([
+            FilamentMailLogPlugin::make(),
+            //...
+        ]);
+}
 ```
 
 ## Testing

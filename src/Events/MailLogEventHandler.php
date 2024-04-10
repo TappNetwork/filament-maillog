@@ -43,7 +43,7 @@ class MailLogEventHandler
             'body' => $message->getHtmlBody(),
             'headers' => $message->getHeaders()->toString(),
             'attachments' => $this->saveAttachments($message),
-            'message_id' => Str::uuid(),
+            'message_id' => (string) Str::uuid(),
         ]);
 
         if (config('filament-maillog.amazon-ses.configuration-set') !== null) {
