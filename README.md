@@ -1,8 +1,8 @@
 # Filament plugin to view outgoing mail
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tapp/filament-maillog.svg?style=flat-square)](https://packagist.org/packages/tapp/filament-maillog)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/tapp/filament-maillog/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/tapp/filament-maillog/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/tapp/filament-maillog/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/tapp/filament-maillog/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/TappNetwork/filament-maillog/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/TappNetwork/filament-maillog/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/TappNetwork/filament-maillog/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/TappNetwork/filament-maillog/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/tapp/filament-maillog.svg?style=flat-square)](https://packagist.org/packages/tapp/filament-maillog)
 
 This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
