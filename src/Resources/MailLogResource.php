@@ -2,17 +2,17 @@
 
 namespace Tapp\FilamentMailLog\Resources;
 
-use Tapp\FilamentMailLog\Resources\MailLogResource\Pages;
-use Tapp\FilamentMailLog\Models\MailLog;
 use Filament\Forms;
 use Filament\Infolists;
 use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
-use Filament\Tables\Table;
 use Filament\Tables;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Tapp\FilamentMailLog\Models\MailLog;
+use Tapp\FilamentMailLog\Resources\MailLogResource\Pages;
 
 class MailLogResource extends Resource
 {

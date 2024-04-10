@@ -2,8 +2,8 @@
 
 namespace Tapp\FilamentMailLog\Resources\MailLogResource\Pages;
 
-use Tapp\FilamentMailLog\Resources\MailLogResource;
 use Filament\Resources\Pages\ListRecords;
+use Tapp\FilamentMailLog\Resources\MailLogResource;
 
 class ListMailLogs extends ListRecords
 {
