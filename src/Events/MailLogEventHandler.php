@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tapp\FilamentMailLog\Events;
 
-use Carbon\Carbon;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Mail\Events\MessageSending;
 use Illuminate\Support\Str;
