@@ -9,7 +9,6 @@ return [
     'table.heading' => 'Mail Logs',
 
     'column.status' => 'Status',
-    'column.date' => 'Date',
     'column.subject' => 'Subject',
     'column.to' => 'To',
     'column.from' => 'From',
@@ -23,7 +22,7 @@ return [
     'column.body' => 'Body',
     'column.headers' => 'Headers',
     'column.attachments' => 'Attachments',
-    'column.data' => 'Log',
+    'column.data' => 'Data',
     'column.created_at' => 'Created At',
     'column.updated_at' => 'Updated At',
 ];

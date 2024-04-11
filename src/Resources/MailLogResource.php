@@ -56,8 +56,8 @@ class MailLogResource extends Resource
                     ->label(trans('filament-maillog::filament-maillog.column.message_id')),
                 Infolists\Components\TextEntry::make('subject')
                     ->label(trans('filament-maillog::filament-maillog.column.subject')),
-                Infolists\Components\TextEntry::make('date')
-                    ->label(trans('filament-maillog::filament-maillog.column.date'))
+                Infolists\Components\TextEntry::make('created_at')
+                    ->label(trans('filament-maillog::filament-maillog.column.created_at'))
                     ->datetime(),
                 Infolists\Components\TextEntry::make('to')
                     ->label(trans('filament-maillog::filament-maillog.column.to')),
@@ -88,7 +88,7 @@ class MailLogResource extends Resource
                 Infolists\Components\TextEntry::make('attachments')
                     ->label(trans('filament-maillog::filament-maillog.column.attachments'))
                     ->columnSpanFull(),
-                Infolists\Components\Section::make('Log')
+                Infolists\Components\Section::make('Data')
                     ->label(trans('filament-maillog::filament-maillog.column.data'))
                     ->icon('heroicon-m-list-bullet')
                     ->schema([
@@ -105,10 +105,6 @@ class MailLogResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('status')
                     ->label(trans('filament-maillog::filament-maillog.column.status'))
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('date')
-                    ->label(trans('filament-maillog::filament-maillog.column.date'))
-                    ->dateTime()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('subject')
                     ->label(trans('filament-maillog::filament-maillog.column.subject'))

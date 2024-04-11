@@ -10,7 +10,6 @@ return new class extends Migration
     {
         Schema::create('mail_logs', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('date');
             $table->string('from')->nullable();
             $table->string('to')->nullable();
             $table->string('cc')->nullable();

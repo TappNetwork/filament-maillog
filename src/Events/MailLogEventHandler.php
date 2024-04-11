@@ -34,7 +34,6 @@ class MailLogEventHandler
         $message = $event->message;
 
         $mailLog = MailLog::create([
-            'date' => Carbon::now()->format('Y-m-d H:i:s'),
             'from' => $this->formatAddressField($message, 'From'),
             'to' => $this->formatAddressField($message, 'To'),
             'cc' => $this->formatAddressField($message, 'Cc'),
