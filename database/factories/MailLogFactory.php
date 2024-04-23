@@ -2,8 +2,8 @@
 
 namespace Tapp\FilamentMailLog\Database\Factories;
 
-use Tapp\FilamentMailLog\Models\MailLog;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Tapp\FilamentMailLog\Models\MailLog;
 
 class MailLogFactory extends Factory
 {
