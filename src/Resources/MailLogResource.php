@@ -93,7 +93,7 @@ class MailLogResource extends Resource
                     ->icon('heroicon-m-list-bullet')
                     ->schema([
                         Infolists\Components\TextEntry::make('data')
-                            ->label(false),
+                            ->label(null),
                     ])
                     ->columnSpanFull(),
             ]);

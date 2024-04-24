@@ -1,0 +1,51 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog\\:\\:\\$message_id\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'attachments' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'bcc' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'body' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'cc' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'from' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'headers' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'message_id' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'subject' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
+
+		-
+			message: "#^Property 'to' does not exist in Tapp\\\\FilamentMailLog\\\\Models\\\\MailLog model\\.$#"
+			count: 1
+			path: src/Events/MailLogEventHandler.php
