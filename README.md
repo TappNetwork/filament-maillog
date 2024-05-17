@@ -58,7 +58,7 @@ return [
 Optionally, you can publish the translations files with:
 
 ```bash
-php artisan vendor:publish --tag="filament-authentication-log-translations"
+php artisan vendor:publish --tag="filament-maillog-translations"
 ```
 
 ## Using the Resource
