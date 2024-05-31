@@ -2,6 +2,24 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v1.0.2 - 2024-05-31
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/TappNetwork/filament-maillog/pull/2
+* PHPStan updates by @andreia in https://github.com/TappNetwork/filament-maillog/pull/3
+* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/TappNetwork/filament-maillog/pull/4
+* Update README.md by @samuelterra22 in https://github.com/TappNetwork/filament-maillog/pull/5
+* Adding resource sort at table from the config file by @ekandreas in https://github.com/TappNetwork/filament-maillog/pull/7
+
+### New Contributors
+
+* @andreia made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/3
+* @samuelterra22 made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/5
+* @ekandreas made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/7
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v1.0.1...v1.0.2
+
 ## v1.0.1 - 2024-04-15
 
 **Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v1.0.0...v1.0.1
