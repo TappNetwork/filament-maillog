@@ -102,6 +102,7 @@ class MailLogResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->defaultSort(config('filament-maillog.sort.column', 'created_at'), config('filament-maillog.sort.direction', 'desc'))
             ->columns([
                 Tables\Columns\TextColumn::make('status')
                     ->label(trans('filament-maillog::filament-maillog.column.status'))
