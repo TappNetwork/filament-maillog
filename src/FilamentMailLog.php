@@ -2,6 +2,4 @@
 
 namespace Tapp\FilamentMailLog;
 
-class FilamentMailLog
-{
-}
+class FilamentMailLog {}

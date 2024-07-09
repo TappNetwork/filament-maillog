@@ -14,8 +14,7 @@ use Tapp\FilamentMailLog\Models\MailLog;
 class MailLogEventHandler
 {
     public function __construct(
-    ) {
-    }
+    ) {}
 
     public function subscribe(Dispatcher $events): void
     {
