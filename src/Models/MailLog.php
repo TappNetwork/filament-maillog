@@ -14,4 +14,9 @@ class MailLog extends Model
     protected $casts = [
         'data' => 'array',
     ];
+
+    public function getDataJsonAttribute()
+    {
+        return json_encode($this->data, JSON_PRETTY_PRINT);
+    }
 }

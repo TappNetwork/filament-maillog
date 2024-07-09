@@ -92,7 +92,7 @@ class MailLogResource extends Resource
                     ->label(trans('filament-maillog::filament-maillog.column.data'))
                     ->icon('heroicon-m-list-bullet')
                     ->schema([
-                        Infolists\Components\TextEntry::make('data')
+                        Infolists\Components\TextEntry::make('data_json')
                             ->label(null),
                     ])
                     ->columnSpanFull(),
