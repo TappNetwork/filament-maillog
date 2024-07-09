@@ -2,6 +2,14 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v1.0.3 - 2024-07-09
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/TappNetwork/filament-maillog/pull/8
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v1.0.2...v1.0.3
+
 ## v1.0.2 - 2024-05-31
 
 ### What's Changed
