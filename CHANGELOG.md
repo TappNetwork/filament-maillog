@@ -2,6 +2,18 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v1.0.4 - 2024-11-07
+
+### What's Changed
+
+* make filament optional by @swilla in https://github.com/TappNetwork/filament-maillog/pull/9
+
+### New Contributors
+
+* @swilla made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/9
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v1.0.3...v1.0.4
+
 ## v1.0.3 - 2024-07-09
 
 ### What's Changed
