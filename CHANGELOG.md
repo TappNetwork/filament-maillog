@@ -2,6 +2,19 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v1.0.5 - 2025-01-09
+
+### What's Changed
+
+* Make sure the event handler to log mail is queued by @swilla in https://github.com/TappNetwork/filament-maillog/pull/11
+* Added italian translation by @carloeusebi in https://github.com/TappNetwork/filament-maillog/pull/10
+
+### New Contributors
+
+* @carloeusebi made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/10
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v1.0.4...v1.0.5
+
 ## v1.0.4 - 2024-11-07
 
 ### What's Changed
