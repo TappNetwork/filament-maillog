@@ -5,6 +5,9 @@ namespace Tapp\FilamentMailLog\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property array $data
+ */
 class MailLog extends Model
 {
     use HasFactory;

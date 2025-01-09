@@ -176,7 +176,7 @@ class MailLogResource extends Resource
     {
         return [
             'index' => Pages\ListMailLogs::route('/'),
-            //'view' => Pages\ViewMailLog::route('/{record}'),
+            // 'view' => Pages\ViewMailLog::route('/{record}'),
         ];
     }
 }
