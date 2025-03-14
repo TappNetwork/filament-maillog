@@ -5,17 +5,14 @@ declare(strict_types=1);
 namespace Tapp\FilamentMailLog\Events;
 
 use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Events\MessageSending;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Str;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mime\Part\DataPart;
 use Tapp\FilamentMailLog\Models\MailLog;
 
-class MailLogEventHandler implements ShouldQueue
+class MailLogEventHandler
 {
-    use InteractsWithQueue;
 
     public function __construct()
     {
