@@ -17,13 +17,13 @@ class SNSController extends Controller
     public function store(Request $request)
     {
         $data = $request->json()->all();
-        //Start verification
+        // Start verification
         if ($data['Type'] == 'SubscriptionConfirmation') {
             file_get_contents($data['SubscribeURL']);  // To verify. (When the first request comes from AWS SNS)
 
             return;
         }
-        //End verification
+        // End verification
 
         $message = Message::fromRawPostData();
         $validator = new MessageValidator;
@@ -44,7 +44,7 @@ class SNSController extends Controller
         Log::info('SNS Message ID: '.$uniqueId);
         Log::info('SNS Message Body: '.json_encode($messageBody));
 
-        if (!$notificationLog) {
+        if (! $notificationLog) {
             return response()->json([], Response::HTTP_OK);
         }
 
