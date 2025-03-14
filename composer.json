@@ -4,7 +4,7 @@
     "keywords": [
         "Tapp Network",
         "laravel",
-        "mailog",
+        "maillog",
         "filament-maillog"
     ],
     "homepage": "https://github.com/tapp/filament-maillog",
@@ -22,20 +22,19 @@
     "require": {
         "php": "^8.2",
         "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0"
+        "illuminate/contracts": "^10.0||^11.0||^12.0"
     },
     "require-dev": {
-        "larastan/larastan": "^2.9",
+        "larastan/larastan": "^2.9||^3.0",
         "laravel/pint": "^1.14",
         "nunomaduro/collision": "^8.1.1||^7.10.0",
-        "orchestra/testbench": "^9.0.0||^8.22.0",
-        "pestphp/pest": "^2.34",
-        "pestphp/pest-plugin-arch": "^2.7",
-        "pestphp/pest-plugin-laravel": "^2.3",
-        "pestphp/pest-plugin-livewire": "^2.1",
-        "phpstan/extension-installer": "^1.3",
-        "phpstan/phpstan-deprecation-rules": "^1.1",
-        "phpstan/phpstan-phpunit": "^1.3",
+        "orchestra/testbench": "^10.0.0||^9.0.0||^8.22.0",
+        "pestphp/pest": "^3.0||^2.34",
+        "pestphp/pest-plugin-arch": "^3.0||^2.7",
+        "pestphp/pest-plugin-laravel": "^3.0||^2.3",
+        "phpstan/extension-installer": "^1.3||^2.0",
+        "phpstan/phpstan-deprecation-rules": "^1.1||^2.0",
+        "phpstan/phpstan-phpunit": "^1.3||^2.0",
         "spatie/laravel-ray": "^1.35"
     },
     "autoload": {
