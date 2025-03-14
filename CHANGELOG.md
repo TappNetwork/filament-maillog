@@ -2,6 +2,16 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v1.0.6 - 2025-03-14
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/TappNetwork/filament-maillog/pull/12
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/TappNetwork/filament-maillog/pull/13
+* Fix SES Delivery Metrics by @swilla in https://github.com/TappNetwork/filament-maillog/pull/14
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v1.0.5...v1.0.6
+
 ## v1.0.5 - 2025-01-09
 
 ### What's Changed
