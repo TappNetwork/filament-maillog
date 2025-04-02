@@ -2,6 +2,14 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v1.0.7 - 2025-04-02
+
+### What's Changed
+
+* Fix body display on view page by @andreia in https://github.com/TappNetwork/filament-maillog/pull/15
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v1.0.6...v1.0.7
+
 ## v1.0.6 - 2025-03-14
 
 ### What's Changed
