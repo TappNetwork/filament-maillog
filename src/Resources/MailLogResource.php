@@ -80,7 +80,7 @@ class MailLogResource extends Resource
                     ->label(trans('filament-maillog::filament-maillog.column.complaint')),
                 Infolists\Components\TextEntry::make('body')
                     ->label(trans('filament-maillog::filament-maillog.column.body'))
-                    ->html()
+                    ->view('filament-maillog::email-html')
                     ->columnSpanFull(),
                 Infolists\Components\TextEntry::make('headers')
                     ->label(trans('filament-maillog::filament-maillog.column.headers'))
