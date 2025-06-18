@@ -5,7 +5,6 @@ namespace Tapp\FilamentMailLog\Resources\MailLogResource\Tables;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
