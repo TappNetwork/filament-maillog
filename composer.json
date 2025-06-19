@@ -17,7 +17,7 @@
         }
     ],
     "suggest": {
-        "filament/filament": "^3.0-stable - Adds Filament admin panel integration"
+        "filament/filament": "^4.0 - Adds Filament admin panel integration"
     },
     "require": {
         "php": "^8.2",
