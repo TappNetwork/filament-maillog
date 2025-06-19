@@ -2,10 +2,9 @@
 
 namespace Tapp\FilamentMailLog\Resources\MailLogResource\Schemas;
 
-use Filament\Schemas\Schema;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Section;
-use Tapp\FilamentGoogleAutocomplete\Forms\Components\GoogleAutocomplete;
+use Filament\Schemas\Schema;
 
 class MailLogInfolist
 {

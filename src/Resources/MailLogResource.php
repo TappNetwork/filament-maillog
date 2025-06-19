@@ -2,11 +2,11 @@
 
 namespace Tapp\FilamentMailLog\Resources;
 
-use Filament\Schemas\Schema;
-use Tapp\FilamentMailLog\Resources\MailLogResource\Pages\ListMailLogs;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Tapp\FilamentMailLog\Models\MailLog;
+use Tapp\FilamentMailLog\Resources\MailLogResource\Pages\ListMailLogs;
 use Tapp\FilamentMailLog\Resources\MailLogResource\Schemas\MailLogInfolist;
 use Tapp\FilamentMailLog\Resources\MailLogResource\Tables\MailLogsTable;
 
