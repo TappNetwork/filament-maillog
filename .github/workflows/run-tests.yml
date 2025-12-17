@@ -51,6 +51,9 @@ jobs:
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
+      - name: Install optional Filament dependency
+        run: composer require filament/filament:^4.0 --no-interaction
+
       - name: List Installed Dependencies
         run: composer show -D
 

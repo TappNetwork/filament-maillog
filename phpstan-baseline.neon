@@ -5,39 +5,3 @@ parameters:
 			identifier: property.notFound
 			count: 1
 			path: src/Events/MailLogEventHandler.php
-
-		-
-			message: '#^Call to method resources\(\) on an unknown class Filament\\Panel\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/FilamentMailLogPlugin.php
-
-		-
-			message: '#^Parameter \$panel of method Tapp\\FilamentMailLog\\FilamentMailLogPlugin\:\:boot\(\) has invalid type Filament\\Panel\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/FilamentMailLogPlugin.php
-
-		-
-			message: '#^Parameter \$panel of method Tapp\\FilamentMailLog\\FilamentMailLogPlugin\:\:register\(\) has invalid type Filament\\Panel\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/FilamentMailLogPlugin.php
-
-		-
-			message: '#^Call to an undefined static method Tapp\\FilamentMailLog\\Resources\\MailLogResource\\Pages\\ListMailLogs\:\:route\(\)\.$#'
-			identifier: staticMethod.notFound
-			count: 1
-			path: src/Resources/MailLogResource.php
-
-		-
-			message: '#^Method Tapp\\FilamentMailLog\\Resources\\MailLogResource\:\:table\(\) has invalid return type Filament\\Tables\\Table\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Resources/MailLogResource.php
-
-		-
-			message: '#^Parameter \$table of method Tapp\\FilamentMailLog\\Resources\\MailLogResource\:\:table\(\) has invalid type Filament\\Tables\\Table\.$#'
-			identifier: class.notFound
-			count: 1
-			path: src/Resources/MailLogResource.php
