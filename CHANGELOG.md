@@ -2,6 +2,18 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v2.0.1 - 2025-12-17
+
+### What's Changed
+
+* Changed mail_log body to 'longText' because 'text' and added down function by @LeanderVanBaekel in https://github.com/TappNetwork/filament-maillog/pull/24
+
+### New Contributors
+
+* @LeanderVanBaekel made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/24
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v2.0.0...v2.0.1
+
 ## v1.0.8 - 2025-06-19
 
 ### What's Changed
