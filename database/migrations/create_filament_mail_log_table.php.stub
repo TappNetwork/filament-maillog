@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('cc')->nullable();
             $table->string('bcc')->nullable();
             $table->string('subject');
-            $table->text('body');
+            $table->longText('body');
             $table->text('headers')->nullable();
             $table->longText('attachments')->nullable();
             $table->uuid('message_id')->nullable();
@@ -31,5 +31,10 @@ return new class extends Migration
             $table->index('message_id');
             $table->index('status');
         });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('mail_logs');
     }
 };
