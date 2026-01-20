@@ -9,25 +9,17 @@ This plugin adds an event listener to log emails sent on `mail_logs` database ta
 
 ## Version Compatibility
 
- Filament | Filament MailLog
-:---------|:---------------------------
- 3.x      | 1.x
- 4.x      | 2.x
+ Filament | Filament MailLog | Documentation
+:---------|:-----------------|:--------------
+| 4.x      | 2.x              | [Check the docs](https://github.com/TappNetwork/filament-maillog/tree/2.x)
+| 3.x      | 1.x              | Current
 
 ## Installation
 
-You can install the package via composer:
-
-### For Filament 3
+You can install the package via Composer:
 
 ```bash
 composer require tapp/filament-maillog:"^1.0"
-```
-
-### For Filament 4
-
-```bash
-composer require tapp/filament-maillog:"^2.0"
 ```
 
 You can publish and run the migrations with:
