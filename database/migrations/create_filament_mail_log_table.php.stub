@@ -10,6 +10,14 @@ return new class extends Migration
     {
         Schema::create('mail_logs', function (Blueprint $table) {
             $table->increments('id');
+
+            if (config('filament-maillog.tenancy.enabled')) {
+                $tenantModel = config('filament-maillog.tenancy.model');
+                $table->foreignIdFor($tenantModel)
+                    ->constrained()
+                    ->cascadeOnDelete();
+            }
+
             $table->string('from')->nullable();
             $table->string('to')->nullable();
             $table->string('cc')->nullable();

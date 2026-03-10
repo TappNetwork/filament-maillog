@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tapp\FilamentMailLog\Resources;
 
 use Filament\Resources\Resource;
@@ -13,6 +15,35 @@ use Tapp\FilamentMailLog\Resources\MailLogResource\Tables\MailLogsTable;
 class MailLogResource extends Resource
 {
     protected static ?string $model = MailLog::class;
+
+    public static function isScopedToTenant(): bool
+    {
+        return config('filament-maillog.tenancy.enabled', false);
+    }
+
+    public static function getTenantOwnershipRelationshipName(): string
+    {
+        if (! config('filament-maillog.tenancy.enabled')) {
+            return 'tenant';
+        }
+
+        return MailLog::getTenantRelationshipName();
+    }
+
+    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        if (config('filament-maillog.tenancy.enabled', false)) {
+            $tenant = \Filament\Facades\Filament::getTenant();
+            if ($tenant) {
+                $tenantColumn = MailLog::getTenantColumnName();
+                $query->where($tenantColumn, $tenant->getKey());
+            }
+        }
+
+        return $query;
+    }
 
     public static function shouldRegisterNavigation(): bool
     {
