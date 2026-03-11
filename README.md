@@ -22,13 +22,6 @@ You can install the package via Composer:
 composer require tapp/filament-maillog:"^2.0"
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="filament-maillog-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -59,8 +52,29 @@ return [
         'column' => 'created_at',
         'direction' => 'desc',
     ],
+
+    'tenancy' => [
+        'enabled' => env('FILAMENT_MAILLOG_TENANCY_ENABLED', false),
+        'model' => null, // e.g. \App\Models\Team::class
+        'relationship_name' => env('FILAMENT_MAILLOG_TENANCY_RELATIONSHIP_NAME', null),
+        'column' => env('FILAMENT_MAILLOG_TENANCY_COLUMN', null),
+        'foreign_key' => [
+            'on_delete' => env('FILAMENT_MAILLOG_TENANCY_ON_DELETE', 'cascade'),
+            'on_update' => env('FILAMENT_MAILLOG_TENANCY_ON_UPDATE', 'cascade'),
+        ],
+        'auto_assign' => env('FILAMENT_MAILLOG_TENANCY_AUTO_ASSIGN', true),
+    ],
 ];
 ```
+
+You can publish and run the migrations with:
+
+```bash
+php artisan vendor:publish --tag="filament-maillog-migrations"
+php artisan migrate
+```
+
+> **Warning:** If you use multi-tenancy, configure tenancy **before** publishing and running migrations. See "Multi-Tenancy Support" below.
 
 Optionally, you can publish the translations files with:
 
@@ -86,6 +100,43 @@ public function panel(Panel $panel): Panel
         ]);
 }
 ```
+
+## Multi-Tenancy Support
+
+Mail log entries can be scoped to a tenant (e.g. team or organization) when your Filament panel uses tenancy.
+
+### Setup
+
+1. **Configure tenancy before migrations**
+
+   Publish the config and set in `config/filament-maillog.php`:
+
+   ```php
+   'tenancy' => [
+       'enabled' => true,
+       'model' => \App\Models\Team::class,
+       'relationship_name' => 'team',
+       'column' => 'team_id',
+       'auto_assign' => true,
+   ],
+   ```
+
+   Or use env vars: `FILAMENT_MAILLOG_TENANCY_ENABLED=true`, `FILAMENT_MAILLOG_TENANCY_COLUMN=team_id`, etc.
+
+2. **Publish and run migrations**
+
+   The `mail_logs` table will get the tenant foreign key when tenancy is enabled:
+
+   ```bash
+   php artisan vendor:publish --tag="filament-maillog-migrations"
+   php artisan migrate
+   ```
+
+3. **Panel**
+
+   Ensure your panel uses the same tenant model, e.g. `->tenant(\App\Models\Team::class)`.
+
+When tenancy is enabled, the resource is scoped to the current tenant and new mail logs are associated with the current tenant.
 
 ## Testing
 
