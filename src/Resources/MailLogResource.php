@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Tapp\FilamentMailLog\Resources;
 
+use Filament\Facades\Filament;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Tapp\FilamentMailLog\Models\MailLog;
 use Tapp\FilamentMailLog\Resources\MailLogResource\Pages\ListMailLogs;
 use Tapp\FilamentMailLog\Resources\MailLogResource\Schemas\MailLogInfolist;
@@ -30,12 +32,12 @@ class MailLogResource extends Resource
         return MailLog::getTenantRelationshipName();
     }
 
-    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
+    public static function getEloquentQuery(): Builder
     {
         $query = parent::getEloquentQuery();
 
         if (config('filament-maillog.tenancy.enabled', false)) {
-            $tenant = \Filament\Facades\Filament::getTenant();
+            $tenant = Filament::getTenant();
             if ($tenant) {
                 $tenantColumn = MailLog::getTenantColumnName();
                 $query->where($tenantColumn, $tenant->getKey());
