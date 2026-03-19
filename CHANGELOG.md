@@ -2,6 +2,20 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v2.1.0 - 2026-03-19
+
+### What's Changed
+
+* Add translation support for status column values by @csh-tech in https://github.com/TappNetwork/filament-maillog/pull/36
+* Laravel 13.x Compatibility by @laravel-shift in https://github.com/TappNetwork/filament-maillog/pull/34
+
+### New Contributors
+
+* @csh-tech made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/36
+* @laravel-shift made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/34
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v2.0.5...v2.1.0
+
 ## v2.0.5 - 2026-03-11
 
 ### What's Changed
