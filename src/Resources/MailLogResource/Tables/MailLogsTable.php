@@ -20,7 +20,7 @@ class MailLogsTable
             ->columns([
                 TextColumn::make('status')
                     ->label(trans('filament-maillog::filament-maillog.column.status'))
-                    ->formatStateUsing(fn(string $state): string => trans("filament-maillog::filament-maillog.status.{$state}") ?: $state)
+                    ->formatStateUsing(fn (string $state): string => trans("filament-maillog::filament-maillog.status.{$state}") ?: $state)
                     ->sortable(),
                 TextColumn::make('subject')
                     ->label(trans('filament-maillog::filament-maillog.column.subject'))
