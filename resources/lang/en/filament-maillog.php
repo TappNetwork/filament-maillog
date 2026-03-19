@@ -25,4 +25,10 @@ return [
     'column.data' => 'Data',
     'column.created_at' => 'Created At',
     'column.updated_at' => 'Updated At',
+
+    'status.sent' => 'sent',
+    'status.delivered' => 'delivered',
+    'status.delayed' => 'delayed',
+    'status.complained' => 'complained',
+    'status.bounced' => 'bounced',
 ];
