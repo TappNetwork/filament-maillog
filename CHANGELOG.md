@@ -2,6 +2,21 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v2.1.1 - 2026-04-16
+
+### What's Changed
+
+* skip coverage by @swilla in https://github.com/TappNetwork/filament-maillog/pull/37
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/TappNetwork/filament-maillog/pull/38
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.0.0 by @dependabot[bot] in https://github.com/TappNetwork/filament-maillog/pull/39
+* Add methods to decode MIME headers in MailLog by @pvullioud in https://github.com/TappNetwork/filament-maillog/pull/40
+
+### New Contributors
+
+* @pvullioud made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/40
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v2.1.0...v2.1.1
+
 ## v2.1.0 - 2026-03-19
 
 ### What's Changed
