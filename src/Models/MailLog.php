@@ -26,4 +26,14 @@ class MailLog extends Model
     {
         return json_encode($this->data, JSON_PRETTY_PRINT);
     }
+
+    public function getFromAttribute($value)
+    {
+        return mb_decode_mimeheader($value);
+    }
+
+    public function getHeadersAttribute($value)
+    {
+        return mb_decode_mimeheader($value);
+    }
 }
