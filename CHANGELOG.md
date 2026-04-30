@@ -2,6 +2,16 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v2.1.2 - 2026-04-30
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/TappNetwork/filament-maillog/pull/41
+* Drop PHP 8.2 support, add PHP 8.5 by @swilla in https://github.com/TappNetwork/filament-maillog/pull/42
+* Fix status column displaying raw translation key instead of label by @swilla in https://github.com/TappNetwork/filament-maillog/pull/43
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v2.1.1...v2.1.2
+
 ## v2.1.1 - 2026-04-16
 
 ### What's Changed
