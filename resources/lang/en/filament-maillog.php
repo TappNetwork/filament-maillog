@@ -31,4 +31,7 @@ return [
     'status.delayed' => 'delayed',
     'status.complained' => 'complained',
     'status.bounced' => 'bounced',
+    'status.Delivery' => 'delivered',
+    'status.Bounce' => 'bounced',
+    'status.Complaint' => 'complained',
 ];

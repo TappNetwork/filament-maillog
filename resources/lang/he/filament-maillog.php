@@ -31,4 +31,7 @@ return [
     'status.delayed' => 'מתעכב',
     'status.complained' => 'תלונה',
     'status.bounced' => 'נדחה',
+    'status.Delivery' => 'נמסר',
+    'status.Bounce' => 'נדחה',
+    'status.Complaint' => 'תלונה',
 ];
