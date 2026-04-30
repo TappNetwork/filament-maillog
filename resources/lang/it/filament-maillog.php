@@ -25,4 +25,13 @@ return [
     'column.data' => 'Dati',
     'column.created_at' => 'Creato il',
     'column.updated_at' => 'Modificato il',
+
+    'status.sent' => 'inviato',
+    'status.delivered' => 'consegnato',
+    'status.delayed' => 'ritardato',
+    'status.complained' => 'reclamo',
+    'status.bounced' => 'rimbalzato',
+    'status.Delivery' => 'consegnato',
+    'status.Bounce' => 'rimbalzato',
+    'status.Complaint' => 'reclamo',
 ];
