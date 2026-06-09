@@ -2,6 +2,14 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v2.2.0 - 2026-06-09
+
+### What's Changed
+
+* Harden tenancy support by @swilla in https://github.com/TappNetwork/filament-maillog/pull/44
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v2.1.2...v2.2.0
+
 ## v2.1.2 - 2026-04-30
 
 ### What's Changed
