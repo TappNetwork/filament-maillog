@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Tapp\FilamentMailLog\Models\MailLog;
 
 return new class extends Migration
 {
@@ -13,9 +14,21 @@ return new class extends Migration
 
             if (config('filament-maillog.tenancy.enabled')) {
                 $tenantModel = config('filament-maillog.tenancy.model');
-                $table->foreignIdFor($tenantModel)
+
+                if (! is_string($tenantModel) || $tenantModel === '') {
+                    throw new InvalidArgumentException('Tenant model not configured in filament-maillog.tenancy.model');
+                }
+
+                $tenantColumn = $table->foreignIdFor($tenantModel, MailLog::getTenantColumnName());
+
+                if (config('filament-maillog.tenancy.nullable', true)) {
+                    $tenantColumn->nullable();
+                }
+
+                $tenantColumn
                     ->constrained()
-                    ->cascadeOnDelete();
+                    ->onDelete((string) config('filament-maillog.tenancy.foreign_key.on_delete', 'cascade'))
+                    ->onUpdate((string) config('filament-maillog.tenancy.foreign_key.on_update', 'cascade'));
             }
 
             $table->string('from')->nullable();

@@ -29,6 +29,7 @@ return [
         'model' => null,
         'relationship_name' => env('FILAMENT_MAILLOG_TENANCY_RELATIONSHIP_NAME', null),
         'column' => env('FILAMENT_MAILLOG_TENANCY_COLUMN', null),
+        'nullable' => env('FILAMENT_MAILLOG_TENANCY_NULLABLE', true),
         'foreign_key' => [
             'on_delete' => env('FILAMENT_MAILLOG_TENANCY_ON_DELETE', 'cascade'),
             'on_update' => env('FILAMENT_MAILLOG_TENANCY_ON_UPDATE', 'cascade'),
