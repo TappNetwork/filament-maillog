@@ -58,6 +58,7 @@ return [
         'model' => null, // e.g. \App\Models\Team::class
         'relationship_name' => env('FILAMENT_MAILLOG_TENANCY_RELATIONSHIP_NAME', null),
         'column' => env('FILAMENT_MAILLOG_TENANCY_COLUMN', null),
+        'nullable' => env('FILAMENT_MAILLOG_TENANCY_NULLABLE', true),
         'foreign_key' => [
             'on_delete' => env('FILAMENT_MAILLOG_TENANCY_ON_DELETE', 'cascade'),
             'on_update' => env('FILAMENT_MAILLOG_TENANCY_ON_UPDATE', 'cascade'),
@@ -117,6 +118,7 @@ Mail log entries can be scoped to a tenant (e.g. team or organization) when your
        'model' => \App\Models\Team::class,
        'relationship_name' => 'team',
        'column' => 'team_id',
+       'nullable' => true,
        'auto_assign' => true,
    ],
    ```
@@ -137,6 +139,7 @@ Mail log entries can be scoped to a tenant (e.g. team or organization) when your
    Ensure your panel uses the same tenant model, e.g. `->tenant(\App\Models\Team::class)`.
 
 When tenancy is enabled, the resource is scoped to the current tenant and new mail logs are associated with the current tenant.
+The tenant column is nullable by default so emails sent before a tenant context exists, such as registration or verification messages, can still be logged.
 
 ## Testing
 

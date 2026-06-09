@@ -2,6 +2,7 @@
 
 namespace Tapp\FilamentMailLog\Tests;
 
+use Filament\FilamentManager;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Testing\TestResponse;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -17,6 +18,9 @@ class TestCase extends Orchestra
     protected function setUp(): void
     {
         parent::setUp();
+
+        $this->app->scoped('filament', fn (): FilamentManager => new FilamentManager);
+        $this->app->alias('filament', FilamentManager::class);
 
         Factory::guessFactoryNamesUsing(
             fn (string $modelName) => 'Tapp\\FilamentMailLog\\Database\\Factories\\'.class_basename($modelName).'Factory'
