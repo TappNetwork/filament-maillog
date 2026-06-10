@@ -31,11 +31,11 @@ return new class extends Migration
                     ->onUpdate((string) config('filament-maillog.tenancy.foreign_key.on_update', 'cascade'));
             }
 
-            $table->string('from')->nullable();
-            $table->string('to')->nullable();
-            $table->string('cc')->nullable();
-            $table->string('bcc')->nullable();
-            $table->string('subject');
+            $table->text('from')->nullable();
+            $table->text('to')->nullable();
+            $table->text('cc')->nullable();
+            $table->text('bcc')->nullable();
+            $table->text('subject');
             $table->longText('body');
             $table->text('headers')->nullable();
             $table->longText('attachments')->nullable();

@@ -28,6 +28,16 @@ afterEach(function (): void {
     Filament::setTenant(null);
 });
 
+it('uses text columns for mail address and subject fields', function (): void {
+    migrateMailLogsTable();
+
+    $columns = collect(DB::select('PRAGMA table_info(mail_logs)'))->keyBy('name');
+
+    foreach (['from', 'to', 'cc', 'bcc', 'subject'] as $column) {
+        expect(strtoupper($columns->get($column)->type))->toBe('TEXT');
+    }
+});
+
 it('adds a nullable tenant foreign key when tenancy is enabled', function (): void {
     config()->set('filament-maillog.tenancy.column', 'company_id');
     config()->set('filament-maillog.tenancy.foreign_key.on_delete', 'set null');
