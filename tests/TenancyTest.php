@@ -28,14 +28,25 @@ afterEach(function (): void {
     Filament::setTenant(null);
 });
 
-it('uses text columns for mail address and subject fields', function (): void {
+it('uses text columns for mail address and subject fields in the create migration', function (): void {
     migrateMailLogsTable();
 
-    $columns = collect(DB::select('PRAGMA table_info(mail_logs)'))->keyBy('name');
+    assertMailLogAddressColumnsAreText();
+});
 
-    foreach (['from', 'to', 'cc', 'bcc', 'subject'] as $column) {
-        expect(strtoupper($columns->get($column)->type))->toBe('TEXT');
-    }
+it('can widen address columns on existing mail_logs tables', function (): void {
+    migrateMailLogsTableWithStringColumns();
+    migrateMailLogAddressColumnsToText();
+
+    assertMailLogAddressColumnsAreText();
+});
+
+it('can run the address column change migration more than once', function (): void {
+    migrateMailLogsTableWithStringColumns();
+    migrateMailLogAddressColumnsToText();
+    migrateMailLogAddressColumnsToText();
+
+    assertMailLogAddressColumnsAreText();
 });
 
 it('adds a nullable tenant foreign key when tenancy is enabled', function (): void {
@@ -103,6 +114,34 @@ function migrateMailLogsTable(): void
 {
     $migration = include __DIR__.'/../database/migrations/create_filament_mail_log_table.php.stub';
     $migration->up();
+}
+
+function migrateMailLogsTableWithStringColumns(): void
+{
+    Schema::create('mail_logs', function (Blueprint $table): void {
+        $table->increments('id');
+        $table->string('from')->nullable();
+        $table->string('to')->nullable();
+        $table->string('cc')->nullable();
+        $table->string('bcc')->nullable();
+        $table->string('subject');
+        $table->longText('body');
+    });
+}
+
+function migrateMailLogAddressColumnsToText(): void
+{
+    $migration = include __DIR__.'/../database/migrations/change_mail_log_address_columns_to_text.php.stub';
+    $migration->up();
+}
+
+function assertMailLogAddressColumnsAreText(): void
+{
+    $columns = collect(DB::select('PRAGMA table_info(mail_logs)'))->keyBy('name');
+
+    foreach (['from', 'to', 'cc', 'bcc', 'subject'] as $column) {
+        expect(strtoupper($columns->get($column)->type))->toBe('TEXT');
+    }
 }
 
 /**
