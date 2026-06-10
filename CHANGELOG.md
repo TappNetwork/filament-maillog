@@ -2,6 +2,18 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v2.2.1 Change DB columns to text - 2026-06-10
+
+### What's Changed
+
+* fix: use text columns for mail address and subject fields by @scottgrayson in https://github.com/TappNetwork/filament-maillog/pull/45
+
+### New Contributors
+
+* @scottgrayson made their first contribution in https://github.com/TappNetwork/filament-maillog/pull/45
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v2.2.0...v2.2.1
+
 ## v2.2.0 - 2026-06-09
 
 ### What's Changed
