@@ -11,6 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
 use Tapp\FilamentMailLog\Models\MailLog;
+use Tapp\FilamentMailLog\Support\MailUniqueId;
 
 class SNSController extends Controller
 {
@@ -81,12 +82,8 @@ class SNSController extends Controller
         return response()->json([], Response::HTTP_OK);
     }
 
-    private function getUniqueIdFromHeader($messageBody)
+    private function getUniqueIdFromHeader($messageBody): ?string
     {
-        return collect($messageBody['mail']['headers'])->filter(function ($header) {
-            return $header['name'] === 'unique-id';
-        })->map(function ($header) {
-            return $header['value'];
-        })->first();
+        return MailUniqueId::fromSesMailHeaders($messageBody['mail']['headers'] ?? []);
     }
 }

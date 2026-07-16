@@ -2,6 +2,13 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## Unreleased
+
+### What's Changed
+
+* Use `X-Unique-Id` instead of `unique-id` so Cloudflare Email Sending accepts logged mail headers.
+* Keep SES SNS matching compatible by accepting both `X-Unique-Id` and legacy `unique-id`.
+
 ## v2.2.2 - 2026-07-04
 
 ### What's Changed

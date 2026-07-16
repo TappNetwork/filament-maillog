@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mime\Part\DataPart;
 use Tapp\FilamentMailLog\Models\MailLog;
+use Tapp\FilamentMailLog\Support\MailUniqueId;
 
 class MailLogEventHandler
 {
@@ -49,7 +50,7 @@ class MailLogEventHandler
             $event->message->getHeaders()->addTextHeader('X-SES-CONFIGURATION-SET', config('filament-maillog.amazon-ses.configuration-set'));
         }
 
-        $event->message->getHeaders()->addTextHeader('unique-id', $mailLog->message_id);
+        $event->message->getHeaders()->addTextHeader(MailUniqueId::HEADER, $mailLog->message_id);
     }
 
     /**
