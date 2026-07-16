@@ -1,12 +1,14 @@
 <?php
 
+use Tapp\FilamentMailLog\Resources\MailLogResource;
+
 return [
     'amazon-ses' => [
         'configuration-set' => null,
     ],
 
     'resources' => [
-        'MaiLogResource' => \Tapp\FilamentMailLog\Resources\MailLogResource::class,
+        'MaiLogResource' => MailLogResource::class,
     ],
 
     'navigation' => [
