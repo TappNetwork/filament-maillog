@@ -2,6 +2,16 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v1.0.9 - 2026-08-14
+
+### What's Changed
+
+* Add Laravel 13 support to the Filament 3 / 1.x line in https://github.com/TappNetwork/filament-maillog/pull/50
+
+Filament 3 apps can now run `tapp/filament-maillog:^1.0` on Laravel 13. Filament 4/5 remains on the 2.x line.
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v1.0.8...v1.0.9
+
 ## v2.0.1 - 2025-12-17
 
 ### What's Changed
