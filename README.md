@@ -139,6 +139,10 @@ Mail log entries can be scoped to a tenant (e.g. team or organization) when your
    Ensure your panel uses the same tenant model, e.g. `->tenant(\App\Models\Team::class)`.
 
 When tenancy is enabled, the resource is scoped to the current tenant and new mail logs are associated with the current tenant.
+The current Filament tenant is captured into Laravel's context so queued notifications still get a tenant id after the HTTP request ends.
+
+Notifications can also provide a tenant by implementing `Tapp\FilamentMailLog\Contracts\ProvidesMailLogTenant`, or by exposing a public property that is an instance of the configured tenant model.
+
 The tenant column is nullable by default so emails sent before a tenant context exists, such as registration or verification messages, can still be logged.
 
 ## Testing

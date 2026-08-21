@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Tapp\FilamentMailLog\Models\Traits;
 
-use Filament\Facades\Filament;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
+use Tapp\FilamentMailLog\Support\TenantResolver;
 
 trait BelongsToTenant
 {
@@ -34,14 +34,13 @@ trait BelongsToTenant
                 return;
             }
 
-            $tenantRelationshipName = static::getTenantRelationshipName();
+            $tenantId = TenantResolver::currentId();
 
-            if (class_exists(Filament::class)) {
-                $tenant = Filament::getTenant();
-                if ($tenant) {
-                    $model->{$tenantRelationshipName}()->associate($tenant);
-                }
+            if ($tenantId === null || $tenantId === '') {
+                return;
             }
+
+            $model->{$tenantColumnName} = $tenantId;
         });
     }
 
