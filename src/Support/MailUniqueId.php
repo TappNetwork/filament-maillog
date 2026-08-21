@@ -18,7 +18,7 @@ final class MailUniqueId
     public const LEGACY_HEADER = 'unique-id';
 
     /**
-     * @param  array<int, array{name?: string, value?: string}>  $headers
+     * @param  array<int, mixed>  $headers
      */
     public static function fromSesMailHeaders(array $headers): ?string
     {

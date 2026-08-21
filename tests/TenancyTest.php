@@ -2,14 +2,21 @@
 
 use Filament\Facades\Filament;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Log\Context\Repository as ContextRepository;
+use Illuminate\Notifications\Events\NotificationSending;
+use Illuminate\Support\Facades\Context;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Tapp\FilamentMailLog\Contracts\ProvidesMailLogTenant;
 use Tapp\FilamentMailLog\Models\MailLog;
 use Tapp\FilamentMailLog\Resources\MailLogResource;
 use Tapp\FilamentMailLog\Tests\Fixtures\Tenant;
 
 beforeEach(function (): void {
     Filament::setTenant(null);
+    if (class_exists(Context::class)) {
+        Context::flush();
+    }
 
     Schema::dropIfExists('mail_logs');
     Schema::dropIfExists('tenants');
@@ -85,6 +92,66 @@ it('allows unassigned mail logs when no tenant context exists', function (): voi
     $mailLog = MailLog::query()->create(mailLogAttributes());
 
     expect($mailLog->tenant_id)->toBeNull();
+});
+
+it('assigns a captured Filament tenant after the live tenant is gone', function (): void {
+    createTenantsTable();
+    migrateMailLogsTable();
+
+    $tenant = Tenant::query()->create(['name' => 'Acme']);
+
+    Filament::setTenant($tenant, isQuiet: true);
+
+    $payload = app(ContextRepository::class)->dehydrate();
+
+    Filament::setTenant(null);
+    Context::flush();
+    app(ContextRepository::class)->hydrate($payload);
+
+    $mailLog = MailLog::query()->create(mailLogAttributes());
+
+    expect($mailLog->tenant_id)->toBe($tenant->id);
+});
+
+it('assigns a tenant from a notification that implements ProvidesMailLogTenant', function (): void {
+    createTenantsTable();
+    migrateMailLogsTable();
+
+    $tenant = Tenant::query()->create(['name' => 'Acme']);
+
+    $notification = new class($tenant->id) implements ProvidesMailLogTenant
+    {
+        public function __construct(private mixed $tenantId) {}
+
+        public function mailLogTenantId(): mixed
+        {
+            return $this->tenantId;
+        }
+    };
+
+    event(new NotificationSending((object) ['email' => 'ada@example.com'], $notification, 'mail'));
+
+    $mailLog = MailLog::query()->create(mailLogAttributes());
+
+    expect($mailLog->tenant_id)->toBe($tenant->id);
+});
+
+it('assigns a tenant from a public notification property', function (): void {
+    createTenantsTable();
+    migrateMailLogsTable();
+
+    $tenant = Tenant::query()->create(['name' => 'Acme']);
+
+    $notification = new class($tenant)
+    {
+        public function __construct(public Tenant $tenant) {}
+    };
+
+    event(new NotificationSending((object) ['email' => 'ada@example.com'], $notification, 'mail'));
+
+    $mailLog = MailLog::query()->create(mailLogAttributes());
+
+    expect($mailLog->tenant_id)->toBe($tenant->id);
 });
 
 it('scopes the resource query to the current Filament tenant', function (): void {
