@@ -2,6 +2,14 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v2.2.4 - 2026-08-21
+
+### What's Changed
+
+* Assign mail log tenants for queued notifications by @swilla in https://github.com/TappNetwork/filament-maillog/pull/51
+
+**Full Changelog**: https://github.com/TappNetwork/filament-maillog/compare/v2.2.3...v2.2.4
+
 ## v2.2.3 - 2026-07-16
 
 ### What's Changed
