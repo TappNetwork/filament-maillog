@@ -2,6 +2,10 @@
 
 All notable changes to `filament-maillog` will be documented in this file.
 
+## v2.2.5 - 2026-11-10
+
+Security fixes: verify SNS signatures before processing, safe SubscribeURL confirmation, optional allowed topic ARNs, sandboxed preview iframe. Thanks to @iefken.
+
 ## v2.2.4 - 2026-08-21
 
 ### What's Changed
