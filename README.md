@@ -36,6 +36,14 @@ return [
         'configuration-set' => null,
     ],
 
+    'amazon-sns' => [
+        /*
+         * TopicArns the SNS webhook accepts, e.g. ['arn:aws:sns:us-east-1:123456789012:ses-events'].
+         * null accepts any topic whose message has a valid AWS signature.
+         */
+        'allowed-topic-arns' => null,
+    ],
+
     'resources' => [
         'MailLogResource' => \Tapp\FilamentMailLog\Resources\MailLogResource::class,
     ],

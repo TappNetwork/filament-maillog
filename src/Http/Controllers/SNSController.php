@@ -31,6 +31,14 @@ class SNSController extends Controller
             return response()->json([], Response::HTTP_FORBIDDEN);
         }
 
+        $allowedTopicArns = config('filament-maillog.amazon-sns.allowed-topic-arns');
+
+        if (is_array($allowedTopicArns) && ! in_array($message['TopicArn'], $allowedTopicArns, true)) {
+            Log::error('SNS Message Validation Error: unexpected TopicArn '.$message['TopicArn']);
+
+            return response()->json([], Response::HTTP_FORBIDDEN);
+        }
+
         if ($message['Type'] === 'SubscriptionConfirmation') {
             Http::get($message['SubscribeURL']);  // To verify. (When the first request comes from AWS SNS)
 

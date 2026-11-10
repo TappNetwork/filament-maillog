@@ -128,3 +128,29 @@ it('records a delivery from a notification whose signature is valid', function (
         ->status->toBe('Delivery')
         ->delivered->not->toBeNull();
 });
+
+it('rejects a signed message from a topic that is not allowed', function (): void {
+    config()->set('filament-maillog.amazon-sns.allowed-topic-arns', ['arn:aws:sns:us-east-1:123456789012:other-topic']);
+
+    $mailLog = MailLog::factory()->create(['message_id' => '019f6b4e-be72-702a-b076-52d42f210fbd']);
+    $payload = signSnsPayload(deliveryNotification($mailLog->message_id), $this->snsPrivateKey);
+
+    $this->postJson('/sns', $payload, ['x-amz-sns-message-type' => 'Notification'])
+        ->assertForbidden();
+
+    expect($mailLog->fresh())
+        ->status->toBeNull()
+        ->delivered->toBeNull();
+});
+
+it('accepts a signed message from an allowed topic', function (): void {
+    config()->set('filament-maillog.amazon-sns.allowed-topic-arns', ['arn:aws:sns:us-east-1:123456789012:ses-events']);
+
+    $mailLog = MailLog::factory()->create(['message_id' => '019f6b4e-be72-702a-b076-52d42f210fbd']);
+    $payload = signSnsPayload(deliveryNotification($mailLog->message_id), $this->snsPrivateKey);
+
+    $this->postJson('/sns', $payload, ['x-amz-sns-message-type' => 'Notification'])
+        ->assertOk();
+
+    expect($mailLog->fresh())->status->toBe('Delivery');
+});
