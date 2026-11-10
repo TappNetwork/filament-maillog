@@ -9,7 +9,10 @@ use Aws\Sns\MessageValidator;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use InvalidArgumentException;
+use RuntimeException;
 use Tapp\FilamentMailLog\Models\MailLog;
 use Tapp\FilamentMailLog\Support\MailUniqueId;
 
@@ -17,22 +20,29 @@ class SNSController extends Controller
 {
     public function store(Request $request)
     {
-        $data = $request->json()->all();
-        // Start verification
-        if ($data['Type'] == 'SubscriptionConfirmation') {
-            file_get_contents($data['SubscribeURL']);  // To verify. (When the first request comes from AWS SNS)
-
-            return;
-        }
-        // End verification
-
-        $message = Message::fromRawPostData();
-        $validator = new MessageValidator;
-
+        // Verify that AWS signed the message before trusting anything in it. This also
+        // covers the SubscribeURL of a SubscriptionConfirmation, which is part of the signed content.
         try {
-            $validator->validate($message);
-        } catch (InvalidSnsMessageException $e) {
+            $message = Message::fromJsonString($request->getContent());
+            app(MessageValidator::class)->validate($message);
+        } catch (InvalidSnsMessageException|InvalidArgumentException|RuntimeException $e) {
             Log::error('SNS Message Validation Error: '.$e->getMessage());
+
+            return response()->json([], Response::HTTP_FORBIDDEN);
+        }
+
+        $allowedTopicArns = config('filament-maillog.amazon-sns.allowed-topic-arns');
+
+        if (is_array($allowedTopicArns) && ! in_array($message['TopicArn'], $allowedTopicArns, true)) {
+            Log::error('SNS Message Validation Error: unexpected TopicArn '.$message['TopicArn']);
+
+            return response()->json([], Response::HTTP_FORBIDDEN);
+        }
+
+        if ($message['Type'] === 'SubscriptionConfirmation') {
+            Http::get($message['SubscribeURL']);  // To verify. (When the first request comes from AWS SNS)
+
+            return response()->json([], Response::HTTP_OK);
         }
 
         $messageBody = json_decode($message->offsetGet('Message'), true);
